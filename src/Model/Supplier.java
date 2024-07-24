@@ -131,5 +131,20 @@ public void deleteSupplier(){
              JOptionPane.showMessageDialog(null, ex);
          }
     }    
-    
+    public void getAgentID(){
+       
+       try{
+           String query = "SELECT * FROM `agent` WHERE a_email=? and a_pwd=?"; 
+           pst = con.prepareStatement(query);
+           pst.setString(1,u_email);
+           pst.setString(2,u_pwd);
+           rs =pst.executeQuery();
+           if(rs.next()){
+                u_id=rs.getString("a_id");
+                System.out.println(u_id);
+           }           
+       }catch(Exception ex){
+         JOptionPane.showMessageDialog(null, ex);  
+       }
+    }
 }
