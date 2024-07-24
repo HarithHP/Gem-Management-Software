@@ -75,7 +75,13 @@ public void inputOwner(){
     
 }
 
-
+public void deleteOwner(){
+        try{ String query = "DELETE FROM `owner` WHERE o_id =?"; 
+          
+         }catch(Exception ex){
+             JOptionPane.showMessageDialog(null, ex);
+         }
+    } 
 
 
 }
