@@ -427,6 +427,22 @@ private void ageCalc()
          main.checkOwnerEmail();
         }
     }
+private void validateClient(){
+    if (u_ctype.equals("Select")) {
+         JOptionPane.showMessageDialog(this,"Please Select Your Region");
+    } else {
+
+     User main = new User();
+     main.setInputUser(u_id, u_fname, u_lname, u_ad_1, u_ad_2, u_ad_3, u_phone, u_dob, String.valueOf(u_age), u_nic, u_jdate, u_email, u_pwd, "Client", this);
+     main.inputUser();
+
+    Client mainc = new Client();
+    mainc.setClient(c_id, u_id, "0", u_fname, u_lname, u_ad_1, u_ad_2, u_ad_3, u_phone, u_dob, String.valueOf(u_age), u_nic, u_jdate, u_email, u_pwd, u_ctype, this);
+    mainc.inputClient();
+    clear();
+    backToSignIn();
+    }
+}
 private void validateUser(){
 Pattern pattern = Pattern.compile("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}");
 Matcher mat = pattern.matcher(u_email); 
