@@ -174,4 +174,140 @@ public void setInput(String u_email,String u_pwd,JFrame jFrame){// use for sign 
             }           
     }
     
+  public void getSupplierID(){
+       
+       try{
+           String query = "SELECT * FROM `supplier` WHERE s_email=? and s_pwd=?"; 
+           pst = con.prepareStatement(query);
+           pst.setString(1,u_email);
+           pst.setString(2,u_pwd);
+           rs =pst.executeQuery();
+           if(rs.next()){
+                u_id=rs.getString("s_id");
+                System.out.println(u_id);
+           }           
+       }catch(Exception ex){
+         JOptionPane.showMessageDialog(null, ex);  
+       }
+    }
+    public void getClientID(){
+       
+       try{
+           String query = "SELECT * FROM `client` WHERE c_email=? and c_pwd=?"; 
+           pst = con.prepareStatement(query);
+           pst.setString(1,u_email);
+           pst.setString(2,u_pwd);
+           rs =pst.executeQuery();
+           if(rs.next()){
+                u_id=rs.getString("c_id");
+                System.out.println(u_id);
+           }           
+       }catch(Exception ex){
+         JOptionPane.showMessageDialog(null, ex);  
+       }
+    }
+    public void getAgentID(){
+       
+       try{
+           String query = "SELECT * FROM `agent` WHERE a_email=? and a_pwd=?"; 
+           pst = con.prepareStatement(query);
+           pst.setString(1,u_email);
+           pst.setString(2,u_pwd);
+           rs =pst.executeQuery();
+           if(rs.next()){
+                u_id=rs.getString("a_id");
+                System.out.println(u_id);
+           }           
+       }catch(Exception ex){
+         JOptionPane.showMessageDialog(null, ex);  
+       }
+    }
+    public void getGemPolishertID(){
+       
+       try{
+           String query = "SELECT * FROM `gempolisher` WHERE e_email=? and e_pwd=?"; 
+           pst = con.prepareStatement(query);
+           pst.setString(1,u_email);
+           pst.setString(2,u_pwd);
+           rs =pst.executeQuery();
+           if(rs.next()){
+                u_id=rs.getString("e_id");
+                System.out.println(u_id);
+           }           
+       }catch(Exception ex){
+         JOptionPane.showMessageDialog(null, ex);  
+       }
+    }
+    public void getOwnerID(){
+       
+       try{
+           String query = "SELECT * FROM `owner` WHERE o_email=? and o_pwd=?"; 
+           pst = con.prepareStatement(query);
+           pst.setString(1,u_email);
+           pst.setString(2,u_pwd);
+           rs =pst.executeQuery();
+           if(rs.next()){
+                o_id=rs.getInt("o_id");
+                System.out.println(o_id);
+           }           
+       }catch(Exception ex){
+         JOptionPane.showMessageDialog(null, ex);  
+       }
+    }
+    public void getUserType(){
+       
+       try{
+           String query = "SELECT * FROM `user` WHERE u_email=? and u_pwd=?"; 
+           pst = con.prepareStatement(query);
+           pst.setString(1,u_email);
+           pst.setString(2,u_pwd);
+           rs =pst.executeQuery();
+           if(rs.next()){
+                u_type=rs.getString("u_type");
+                System.out.println(u_type);
+           }           
+       }catch(Exception ex){
+         JOptionPane.showMessageDialog(null, ex);  
+       }
+    }
 
+    public void updateUser(){
+          try{
+           String sql = "UPDATE user SET u_fname=?,u_lname=?,u_ad_1=?,u_ad_2=?,u_ad_3=?,u_phone=?,u_nic=?,u_jdate=?,u_email=?,u_pwd=? ,u_type=? WHERE u_id=?";
+           pst = con.prepareStatement(sql);
+         
+           pst.setString(12,u_id);
+           pst.setString(1,u_fname);
+           pst.setString(2,u_lname);
+           pst.setString(3,u_ad_1);
+           pst.setString(4,u_ad_2);
+           pst.setString(5,u_ad_3);
+           pst.setString(6,u_phone);
+           pst.setString(7,u_nic);
+           pst.setString(8,u_jdate);
+           pst.setString(11,u_type);
+           pst.setString(9,u_email);
+           pst.setString(10,u_pwd);
+           pst.executeUpdate();
+            //JOptionPane.showMessageDialog(null, "User Data Updated Successfully");
+            }
+                catch(Exception ex){
+                JOptionPane.showMessageDialog(null, ex);
+            }
+
+
+    }
+    
+ public void delete(){
+        try{ String query = "DELETE FROM `user` WHERE u_id =?"; 
+           pst = con.prepareStatement(query);
+           pst.setString(1,u_id);
+           pst.executeUpdate();
+             //JOptionPane.showMessageDialog(null, "User Data Deleted Successfully");
+         }catch(Exception ex){
+             JOptionPane.showMessageDialog(null, ex);
+         }
+    }
+
+
+}
