@@ -36,7 +36,24 @@ public class Expense {
         this.ex_status = ex_status;
         this.ex_type = ex_type;
     }
-      
+       public void input(){
+        try{ String query = "INSERT INTO `expense`(`ex_id`, `ex_ono`, `ex_tot`, `ex_pmethod`, `ex_pdate`, `ex_status`, `ex_type`) VALUES (?,?,?,?,?,?,?)"; 
+           pst = con.prepareStatement(query);
+           pst.setInt(1,Integer.valueOf(ex_id));
+           pst.setInt(2,Integer.valueOf(ex_ono));
+           pst.setString(3,ex_tot);
+           pst.setString(4,ex_pmethod);
+           pst.setString(5,ex_pdate);
+           pst.setString(6,ex_status);
+           pst.setString(7,ex_type);
+           pst.executeUpdate();
+            // JOptionPane.showMessageDialog(null, "Expense Recorded");
+         }catch(Exception ex){
+             JOptionPane.showMessageDialog(null, ex);
+         }
+    }
+
+
 
     
 }
