@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  *
  * @author Chamod Dilushanka
  */
-/*1111111*/
+
 public class Agent {
     Connection con = SqlConnection.getCon();
     PreparedStatement pst = null;
