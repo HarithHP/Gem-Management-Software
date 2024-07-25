@@ -206,6 +206,34 @@ public void setInput(String u_email,String u_pwd,JFrame jFrame){// use for sign 
          JOptionPane.showMessageDialog(null, ex);  
        }
     }
+ public void checkUserEmail(){
+        try{String query = "select * from user where u_email = ?";
+            pst=con.prepareStatement(query);
+            pst.setString(1,u_email);
+            rs=pst.executeQuery();
+            if(rs.next()){
+            checkUserPassword();
+            }else{
+            JOptionPane.showMessageDialog(null, "There isn't an account for this email");
+            }
+    } catch (SQLException ex) {
+            Logger.getLogger(SignInUp.class.getName()).log(Level.SEVERE, null, ex);          
+            }           
+    }
+ public void checkUserEmail(){
+        try{String query = "select * from user where u_email = ?";
+            pst=con.prepareStatement(query);
+            pst.setString(1,u_email);
+            rs=pst.executeQuery();
+            if(rs.next()){
+            checkUserPassword();
+            }else{
+            JOptionPane.showMessageDialog(null, "There isn't an account for this email");
+            }
+    } catch (SQLException ex) {
+            Logger.getLogger(SignInUp.class.getName()).log(Level.SEVERE, null, ex);          
+            }           
+    }
     public void getAgentID(){
        
        try{
@@ -253,6 +281,20 @@ public void setInput(String u_email,String u_pwd,JFrame jFrame){// use for sign 
        }catch(Exception ex){
          JOptionPane.showMessageDialog(null, ex);  
        }
+    }
+ public void checkUserEmail(){
+        try{String query = "select * from user where u_email = ?";
+            pst=con.prepareStatement(query);
+            pst.setString(1,u_email);
+            rs=pst.executeQuery();
+            if(rs.next()){
+            checkUserPassword();
+            }else{
+            JOptionPane.showMessageDialog(null, "There isn't an account for this email");
+            }
+    } catch (SQLException ex) {
+            Logger.getLogger(SignInUp.class.getName()).log(Level.SEVERE, null, ex);          
+            }           
     }
     public void getUserType(){
        
