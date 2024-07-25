@@ -80,6 +80,12 @@ public class ClientMainForm extends javax.swing.JFrame {
               String ex_no;
               String exa_no;
 
+String c_btypfe;
+               String c_bacfc;
+               String c_bcvfc;
+               String c_bexfp;
+
+
 
 
                 
@@ -186,6 +192,12 @@ public class ClientMainForm extends javax.swing.JFrame {
 
         }
     }
+public void orderSetData() {
+        c_btype = combo_cardType.getSelectedItem().toString();
+        c_bacc = txt_cardno.getText();
+        c_bcvc = txt_cvc.getText();
+        c_bexp = txt_exp.getText();
+}
 
      private void getID(){
 
